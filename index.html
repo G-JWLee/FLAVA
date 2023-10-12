@@ -52,20 +52,24 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Lifelong Audio-video Masked Autoencoder with Forget-robust Localized Alignments</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                Jaewoo Lee</a><sup>*,1</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  Jaehong Yoon</a><sup>*,2</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                    Wonjae Kim</a><sup>*,3</sup>,</span>
+                    <span class="author-block">
+                      Yunji Kim</a><sup>3</sup>,</span>
+                      <span class="author-block">
+                        Sung Ju Hwang</a><sup>1,4</sup>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="author-block"><sup>1 </sup>KAIST, <sup>2 </sup>UNC Chapel Hill, <sup>3 </sup>NAVER AI Lab <sup>4 </sup>DeepAuto<br>Preprint</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
 
@@ -100,7 +104,7 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code(Coming soon)</span>
                   </a>
                 </span>
 
@@ -122,24 +126,6 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -148,7 +134,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            We present a lifelong audio-video masked autoencoder that continually learns the multimodal representations from a video stream containing audio-video pairs, while its distribution continually shifts over time. Specifically, we propose two novel ideas to tackle the problem: (1) Localized Alignment: We introduce a small trainable multimodal encoder that predicts the audio and video tokens that are well-aligned with each other. This allows the model to learn only the highly correlated audiovisual patches with accurate multimodal relationships. (2) Forget-robust multimodal patch selection: We compare the relative importance of each audio-video patch between the current and past data pair to mitigate unintended drift of the previously learned audio-video representations. Our proposed method, FLAVA (Forget-robust Localized Audio-Video Alignment), therefore, captures the complex relationships between the audio and video modalities during training on a sequence of pre-training tasks while alleviating the forgetting of learned audiovisual correlations. Our experiments validate that FLAVA outperforms the state-of-the-art continual learning methods on several benchmark datasets under continual audio-video representation learning scenarios.
           </p>
         </div>
       </div>
@@ -162,35 +148,41 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+     <h2 class="title">Motivation</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/motivation1.jpg" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:500px;"
+        />
         <h2 class="subtitle has-text-centered">
-          First image description.
+          <b>Data distribution shift.</b><br>
+          In real-word scenarios, the model should handle a <i>dynamic shift of audiovisual data distribution</i> when training on videos,
+          as the agent's surroundings can continuously change over time.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/motivation2.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:500px;"
+        />
         <h2 class="subtitle has-text-centered">
-          Second image description.
+          <b>Visualization of cross attention maps.</b><br>
+          Learning audio-video data with continuously changing semantic categories is a nontrivial problem due to two critical challenges:
+          <i>1) sparse spatiotemporal correlation between the audio-video pairs,</i> and <i>2) representational forgetting of audio-video relationships.</i>
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/motivation3.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:500px;"
+        />
         <h2 class="subtitle has-text-centered">
-         Third image description.
+         <b>Cross-attention maps obtained by matched or unmatched data pairs.</b><br>
+          In both modalities, the cross-attention maps with the past data often concentrate on misleading locations when the past data is
+          largely different from the current task.
        </h2>
      </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
   </div>
 </div>
 </div>
@@ -198,80 +190,124 @@
 <!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
+<!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+     <h2 class="title">Method</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/method.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:500px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Overview of our FLAVA (Forget-robust Localized Audio Video Alignments)</b><br>
+          Our method harnesses cross-modal attention maps from the AVM module to compute importance scores in order to identify highly correlated patches <b>(Localized Audio-Video Alignment)</b>.
+          Comparing the attention maps created by the current queries with those generated by past queries, we generate pruning probability matrices that compare the relative importance of
+          each patch between the current task and past tasks <b>(Forget-robust multimodal patch selection)</b>. Finally, we select patches to continually pre-train the model <b>(Multimodal patch selection for continual masked modeling)</b>.
+        </h2>
       </div>
-    </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End video carousel -->
+<!-- End image carousel -->
 
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- Image carousel -->
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+     <h2 class="title">Experiments</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/retrieval_result.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Retrieval experiment results.</b><br>Results of audiovisual zero-shot retrieval task on VGGSound and AudioSet.
+        </h2>
       </div>
-    </div>
-  </section>
-<!--End paper poster -->
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+        <!-- Your image here -->
+        <img src="static/images/classification_result.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Classification experiment results.</b><br>VGGSound & AudioSet audiovisual classification task results.
+        </h2>
+      </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+        <!-- Your image here -->
+        <img src="static/images/memory_size_result.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Downstream performance on various rehearsal memory sizes.</b><br>We evaluate downstream task performances on the pre-trained models with various rehearsal memory sizes on the VGGSound dataset.
+        </h2>
+      </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+        <!-- Your image here -->
+        <img src="static/images/efficiency_analysis.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Efficiency analysis.</b><br>GPU memory occupancy (GPU M.) is measured in GB. Throughput (T.P.) of baselines is measured in sample/sec. Both are estimated in single V100 with batch size of 9.
+        </h2>
+      </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+        <!-- Your image here -->
+        <img src="static/images/sampling_method_result.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Sampling methods.</b><br>Retrieval results by various methods of sampling on VGGSound dataset.
+        </h2>
+      </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+        <!-- Your image here -->
+        <img src="static/images/modality_gap.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Modality gap estimation.</b><br>(Left) Average modality gap difference between the modality gap estimated at the completion of the last task and modality gap estimated at the completion of each task.
+            (Right) Estimation of modality gap after the completion of each task.
+        </h2>
+      </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+        <!-- Your image here -->
+        <img src="static/images/modality_gap_vis.png" alt="MY ALT TEXT"
+       style="display: block; margin: 0 auto; height:400px;"
+        />
+        <h2 class="subtitle has-text-centered">
+          <b>Modality gap visualization.</b><br>Visualizations of the modality gap corresponding to the sports task with the model pre-trained up to the last task.
+        </h2>
+      </div>
+</section>
+
 
 
 <!--BibTex citation -->
