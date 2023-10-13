@@ -23,6 +23,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="jwlee@ai12.kaist.ac.kr:22 password">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="jwlee@ai13.kaist.ac.kr:22 password">
         <serverdata>
           <mappings>
